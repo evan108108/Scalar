@@ -2,6 +2,7 @@
 namespace Starship\Scalar;
 
 use Starship\Scalar\Pipe as Pipe;
+use Starship\Scalar\MethodMapper as MethodMapper;
 
 class ScalarObject
 {
@@ -13,7 +14,7 @@ class ScalarObject
 	}
 
 	public function __call($name, $arguments)
-	{
+	{	
 		$var = $this->_val;
 		$haystack_found = false;
 		
@@ -26,8 +27,12 @@ class ScalarObject
 		});	
 
 		if(!$haystack_found) {
-			array_unshift($arguments, $var);
+			if(!isset(MethodMapper::$method_map[$name]))
+				array_unshift($arguments, $var);
+			else
+				array_splice( $arguments, (MethodMapper::$method_map[$name]['haystack'] -1), 0, array($var) );
 		}	
+			
 
 		return call_user_func_array($name, $arguments);
 	}
@@ -53,4 +58,3 @@ class ScalarObject
 		return true;
 	}
 }
-
