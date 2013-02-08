@@ -7,7 +7,7 @@ class ScalarObject
 {
 	private $_val;
 
-	function __conStruct($arg)
+	function __construct($arg)
 	{
 		$this->_val = $arg;
 	}

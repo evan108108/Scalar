@@ -10,7 +10,7 @@ class Pipe
 	private $_ScalarObject;
 	private $_type;
 
-	function __conStruct($ScalarObject)
+	function __construct($ScalarObject)
 	{
 		$this->_type = get_class($ScalarObject);
 		$this->_ScalarObject = new $this->_type((String) $ScalarObject);
