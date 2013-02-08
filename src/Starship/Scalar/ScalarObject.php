@@ -19,15 +19,15 @@ class ScalarObject
 		$haystack_found = false;
 		
 		array_walk($arguments,  function(&$arg) use($var, &$haystack_found) {
+			if($arg === 0) $arg = '0'; //Fixes issue that keeps zero value args from being passed
 			if($arg == '___') { 	
 				$arg = $var;
 				$haystack_found = true;
-				return;
 			}
 		});	
 
 		if(!$haystack_found) {
-			if(!isset(MethodMapper::$method_map[$name]))
+			if( !isset(MethodMapper::$method_map[$name]) ) 
 				array_unshift($arguments, $var);
 			else
 				array_splice( $arguments, (MethodMapper::$method_map[$name]['haystack'] -1), 0, array($var) );
