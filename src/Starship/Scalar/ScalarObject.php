@@ -1,6 +1,8 @@
 <?php
 namespace Starship\Scalar;
 
+use Starship\Scalar\Pipe as Pipe;
+
 class ScalarObject
 {
 	private $_val;

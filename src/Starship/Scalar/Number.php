@@ -1,6 +1,8 @@
 <?php
 namespace Starship\Scalar;
 
+use Starship\Scalar\ScalarObject as ScalarObject;
+
 class Number extends ScalarObject
 {
 	function __conStruct($arg)
