@@ -3,7 +3,6 @@ namespace Starship\Scalar;
 
 use Starship\Scalar\ScalarObject as ScalarObject;
 use Starship\Scalar\Str as Str;
-use Starship\Scalar\Number as Number;
 
 class Pipe
 {
