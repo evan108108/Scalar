@@ -25,7 +25,7 @@ The recommended way to install react/scalar is [through composer](http://getcomp
 ```php
 require __DIR__.'/vendor/autoload.php';
 
-$my_string = new Starship\Scalar\String('This is a great string!');
+$my_string = new Starship\Scalar\Str('This is a great string!');
 
 echo $my_string; //Outputs: 'This is a great string!'
 echo $my_string->strlen(); //Outputs: 23
@@ -66,7 +66,7 @@ In the above example we see that the MethodMapper class consists of a single sta
 ```php
 require __DIR__.'/vendor/autoload.php';
 
-$my_string = new Starship\Scalar\String('This is a great string!');
+$my_string = new Starship\Scalar\Str('This is a great string!');
 
 echo $my_string; //Outputs: 'This is a great string!'
 echo $my_string->str_replace('great', 'super great'); //Outputs: 'This is a super great string!'
@@ -79,7 +79,7 @@ Scalar allows you to chain or pipe the output of one or more methods into the ne
 ```php
 require __DIR__.'/vendor/autoload.php';
 
-$my_string = new Starship\Scalar\String('This is a great string!');
+$my_string = new Starship\Scalar\Str('This is a great string!');
 
 echo $my_string; //Outputs: 'This is a great string!'
 echo $my_string()->str_replace('great', 'super great')->strlen(); //Outputs: 29
