@@ -39,7 +39,7 @@ By default Scalar maps you're string to the first param of the PHP function your
 ```php
 require __DIR__.'/vendor/autoload.php';
 
-$my_string = new Starship\Scalar\String('This is a great string!');
+$my_string = new Starship\Scalar\Str('This is a great string!');
 
 echo $my_string; //Outputs: 'This is a great string!'
 
