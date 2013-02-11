@@ -4,7 +4,7 @@ namespace Starship\Scalar;
 use Starship\Scalar\Pipe as Pipe;
 use Starship\Scalar\MethodMapper as MethodMapper;
 
-class ScalarObject
+class ScalarObject extends MethodMapper
 {
 	private $_val;
 
@@ -15,26 +15,34 @@ class ScalarObject
 
 	public function __call($name, $arguments)
 	{	
-		$var = $this->_val;
+		$val = $this->_val;
 		$haystack_found = false;
 		
-		array_walk($arguments,  function(&$arg) use($var, &$haystack_found) {
-			if($arg === 0) $arg = '0'; //Fixes issue that keeps zero value args from being passed
-			if($arg == '___') { 	
-				$arg = $var;
+		array_walk($arguments,  function(&$arg) use($val, &$haystack_found) {
+			if($arg === 0) {
+				$arg = '0'; //Fixes issue that keeps zero value args from being passed
+			} else if($arg == '___') { 	
+				$arg = $val;
 				$haystack_found = true;
 			}
 		});	
 
 		if(!$haystack_found) {
-			if( !isset(MethodMapper::$method_map[$name]) ) 
-				array_unshift($arguments, $var);
-			else
-				array_splice( $arguments, (MethodMapper::$method_map[$name]['haystack'] -1), 0, array($var) );
-		}	
-			
+			if( !isset($this::$method_map[$name]) ) {
+				array_unshift($arguments, $val);
+				$arguments[0] = &$val; //Fixes call time pass by reference deprecated warning
+			}
+			else {
+				array_splice( $arguments, ($this::$method_map[$name]['haystack'] -1), 0, array($val) );
+				$arguments[($this::$method_map[$name]['haystack'] -1)] = &$val; //Fixes call time pass by reference deprecated warning
+			}
+		}
 
-		return call_user_func_array($name, $arguments);
+		$result = call_user_func_array($name, $arguments);
+		if($val == $this->_val) //If the Value is unchanged then we return the result
+			return $result;
+		else //If the Value has changed we know that the PHP function takes the value as a ref aand return the val
+			return $val;
 	}
 
 	public function __invoke()
