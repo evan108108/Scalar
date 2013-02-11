@@ -41,7 +41,7 @@ You may use any php array method. Here are a few examples:
 ```php
 require __DIR__.'/vendor/autoload.php';
 
-$my_array = new Starship\Scalar\sArray(array(1,2,3,4);
+$my_array = new Starship\Scalar\sArray(array(1,2,3,4));
 
 echo $my_array; //Outputs: '[1,2,3,4]'
 echo $my_array[0]; //Outputs: 1
@@ -61,7 +61,7 @@ By default Scalar maps you're string/array to the first param of the PHP functio
 require __DIR__.'/vendor/autoload.php';
 
 $my_string = new Starship\Scalar\String('This is a great string!');
-$my_array = new Starship\Scalar\sArray(array(1,2,3,4);
+$my_array = new Starship\Scalar\sArray(array(1,2,3,4));
 
 echo $my_string; //Outputs: 'This is a great string!'
 
@@ -114,7 +114,7 @@ echo $my_string()->str_replace('great', 'super great')->substr(0,10)->strlen(); 
 echo $my_string()->explode('great')->count(); //Outputs: 2
 echo $my_string()->explode('great')->implode('wow'); //Outputs: 'This is a wow string!'
 
-$my_array = new Starship\Scalar\sArray(array(1,2,3,4);
+$my_array = new Starship\Scalar\sArray(array(1,2,3,4));
 
 echo $my_array()->implode('')->strlen(); //Outputs: 4
 echo $my_array()->implode('')->strlen()->rand(10); //Outputs: random number between 4 and 10
