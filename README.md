@@ -1,6 +1,6 @@
 # Starship/Scalar
 
-Provides Scalar Objects in PHP* thus helping improve PHP's inconstant API. The best part is that you can use any of PHP's built in string functions!
+Provides Scalar Objects in PHP* thus helping improve PHP's inconstant API. The best part is that you can use any of PHP's built in string / array functions!
   
 *Currently Scalar supports strings and arrays but future versions will support numbers and objects.  
 *This library requires PHP 5.3 or greater.  
