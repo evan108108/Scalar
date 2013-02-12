@@ -25,7 +25,7 @@ You may use any php string method. Here are a few examples:
 ```php
 require __DIR__.'/vendor/autoload.php';
 
-$my_string = new Starship\Scalar\String('This is a great string!');
+$my_string = new Starship\Scalar\Str('This is a great string!');
 
 echo $my_string; //Outputs: 'This is a great string!'
 echo $my_string->strlen(); //Outputs: 23
@@ -60,7 +60,7 @@ By default Scalar maps you're string/array to the first param of the PHP functio
 ```php
 require __DIR__.'/vendor/autoload.php';
 
-$my_string = new Starship\Scalar\String('This is a great string!');
+$my_string = new Starship\Scalar\Str('This is a great string!');
 $my_array = new Starship\Scalar\sArray(array(1,2,3,4));
 
 echo $my_string; //Outputs: 'This is a great string!'
@@ -93,7 +93,7 @@ In the above example we see that the MethodMapper class consists of a single sta
 ```php
 require __DIR__.'/vendor/autoload.php';
 
-$my_string = new Starship\Scalar\String('This is a great string!');
+$my_string = new Starship\Scalar\Str('This is a great string!');
 
 echo $my_string; //Outputs: 'This is a great string!'
 echo $my_string->str_replace('great', 'super great'); //Outputs: 'This is a super great string!'
@@ -106,7 +106,7 @@ Scalar allows you to chain or pipe the output of one or more methods into the ne
 ```php
 require __DIR__.'/vendor/autoload.php';
 
-$my_string = new Starship\Scalar\String('This is a great string!');
+$my_string = new Starship\Scalar\Str('This is a great string!');
 
 echo $my_string; //Outputs: 'This is a great string!'
 echo $my_string()->str_replace('great', 'super great')->strlen(); //Outputs: 29
