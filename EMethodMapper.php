@@ -1,7 +1,5 @@
 <?php
-namespace Starship\Scalar;
-
-class MethodMapper
+class EMethodMapper
 {
 	public static $method_map = array(
 		"str_replace" => array('haystack'=>3),

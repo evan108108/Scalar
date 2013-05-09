@@ -1,10 +1,5 @@
 <?php
-namespace Starship\Scalar;
-
-use Starship\Scalar\Pipe as Pipe;
-use Starship\Scalar\MethodMapper as MethodMapper;
-
-class ScalarObject extends MethodMapper
+class EScalarObject extends EMethodMapper
 {
 	private $_val;
 
@@ -47,7 +42,7 @@ class ScalarObject extends MethodMapper
 
 	public function __invoke()
 	{
-		return new Pipe($this);
+		return new EPipe($this);
 	}
 
 	public function __toString()

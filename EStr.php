@@ -1,9 +1,5 @@
 <?php
-namespace Starship\Scalar;
-
-use Starship\Scalar\ScalarObject as ScalarObject;
-
-class Str extends ScalarObject
+class EStr extends EScalarObject
 {
 	function __construct($arg)
 	{

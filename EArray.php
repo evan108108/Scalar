@@ -1,9 +1,5 @@
 <?php
-namespace Starship\Scalar;
-
-use Starship\Scalar\ScalarObject as ScalarObject;
-
-class sArray extends ScalarObject implements \ArrayAccess {
+class EArray extends EScalarObject implements \ArrayAccess {
 	protected $container = array();
 
 	public function __construct($s_array) {

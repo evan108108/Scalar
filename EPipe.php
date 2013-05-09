@@ -1,11 +1,5 @@
 <?php
-namespace Starship\Scalar;
-
-use Starship\Scalar\ScalarObject as ScalarObject;
-use Starship\Scalar\Str as Str;
-use Starship\Scalar\sArray as sArray;
-
-class Pipe extends sArray
+class EPipe extends EArray
 {
 	private $_ScalarObject;
 	private $_type;
@@ -21,12 +15,12 @@ class Pipe extends sArray
 		$ScalarObject = new $this->_type($this->_ScalarObject->getVal());
 		$result = call_user_func_array(array($ScalarObject, $name), $arguments);
 		if(is_array($result)) {
-			$this->_type = '\Starship\Scalar\sArray';
+			$this->_type = 'EArray';
 			$this->_ScalarObject = new $this->_type($result);
 			$this->container = $result;	
 		}
 		else {
-			$this->_type = '\Starship\Scalar\Str';
+			$this->_type = 'EStr';
 			$this->_ScalarObject = new $this->_type((string) $result);
 		}
 
